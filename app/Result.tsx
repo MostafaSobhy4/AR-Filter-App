@@ -5,49 +5,48 @@ import { useContext } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Result() {
-  const { image } = useContext(ImageContext);
-const saveImage = async () => {
-  if (!image) return;
+    const { image } = useContext(ImageContext);
+    const saveImage = async () => {
+        if (!image) return;
 
-  const asset = await MediaLibrary.createAssetAsync(image);
-  await MediaLibrary.createAlbumAsync("AR Filter App", asset, false)
+        const asset = await MediaLibrary.createAssetAsync(image);
+        await MediaLibrary.createAlbumAsync("AR Filter App", asset, false)
 
-  alert("Image saved Successfully");
-};
+        alert("Image saved Successfully");
+    };
 
-  return (
-    <View style={styles.container}>
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>RESULT</Text>
 
-      <Text style={styles.title}>RESULT</Text>
+            {image && (
+            <Image
+                source={{ uri: image }}
+                style={styles.image}
+            />
+            )}
 
-      {image && (
-        <Image
-          source={{ uri: image }}
-          style={styles.image}
-        />
-      )}
+            <Text style={styles.subtitle}>
+            Me7ashesh Filter Applied
+            </Text>
 
-      <Text style={styles.subtitle}>
-        Me7ashesh Filter Applied
-      </Text>
+            <View style={styles.buttons}>
 
-      <View style={styles.buttons}>
+            <TouchableOpacity style={styles.saveBtn} onPress={saveImage}>
+                <Text style={styles.btnText}>Save</Text>
+            </TouchableOpacity>
 
-        <TouchableOpacity style={styles.saveBtn} onPress={saveImage}>
-          <Text style={styles.btnText}>Save</Text>
-        </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => router.replace('/')}
+                style={styles.retryBtn}
+            >
+                <Text style={styles.btnText}>Try Again</Text>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => router.replace('/')}
-          style={styles.retryBtn}
-        >
-          <Text style={styles.btnText}>Try Again</Text>
-        </TouchableOpacity>
+            </View>
 
-      </View>
-
-    </View>
-  );
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({

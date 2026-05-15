@@ -92,7 +92,7 @@ export default function Signup() {
 
     await AsyncStorage.setItem("Accounts", JSON.stringify(accounts));
 
-    alert("Account created ✅");
+    alert("Account created successfully");
 
     setName("");
     setUsername("");

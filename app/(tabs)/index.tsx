@@ -57,7 +57,7 @@ return (
         )}
 
 
-        <TouchableOpacity style={styles.iconBtn}>
+        <TouchableOpacity style={styles.iconBtn} onPress={() => router.push("/Settings")}>
           <Ionicons name="settings-outline" size={24} color="white" />
         </TouchableOpacity>
 

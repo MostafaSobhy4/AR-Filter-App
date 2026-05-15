@@ -18,13 +18,12 @@ export default function GalleryButton() {
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
+      router.push("/Processing");
+
+      setTimeout(() => {
+          router.replace("/Result");
+      }, 3000);
     }
-
-    router.push("/Processing");
-
-    setTimeout(() => {
-        router.replace("/Result");
-    }, 3000);
   };
 
   return (

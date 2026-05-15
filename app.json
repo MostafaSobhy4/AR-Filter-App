@@ -4,33 +4,29 @@
     "slug": "ar-filter-app",
     "version": "1.0.0",
     "orientation": "portrait",
-
     "icon": "./assets/images/iconn.png",
-
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-
     "ios": {
       "supportsTablet": true
     },
-
     "android": {
-
       "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
         "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE"
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/iconn.png",
         "backgroundColor": "#0F1115"
-      }
+      },
+      "package": "com.anonymous.arfilterapp"
     },
-
     "web": {
       "output": "static",
       "favicon": "./assets/images/iconn.png"
     },
-
     "plugins": [
       "expo-router",
       [
@@ -43,10 +39,15 @@
         }
       ]
     ],
-
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "762656b0-2451-4bc6-8862-8eb1d2a7cccb"
+      }
     }
   }
 }
